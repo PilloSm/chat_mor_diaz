@@ -127,7 +127,6 @@
     <script>
       // En tu script existente...
       socket.on('mensaje', function (data) {
-        // ... (código existente) ...
     
         if (data.id != socket.id) {
           var sanitized = data.msg.replace(/<\/?[^>]+(>|$)/g, ""); // Remover etiquetas HTML
