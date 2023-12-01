@@ -1,15 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var app = require("express")();
-var server = require("https").Server(app);
+var server = require("http").Server(app);
 var io = require("socket.io")(server);
-const port = 8080;
 var clientes = [];
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-server.listen(port, () => console.log("Servidor iniciado en 443"));
+server.listen(process.env.PORT || 3000 , () => console.log("Servidor iniciado en 443"));
 
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/public/index.html");
